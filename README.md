@@ -33,9 +33,10 @@ For full command syntax and options, ask *alis-bot-rs* directly  :
 
 A configuration file is required to specify IRC server details, such as address of the IRC server, bot nickname and connection credentials. 
 This config file can be specified with one of this argument :
-`--conf=<file>` 
-`--conf=<file1><file2>` : allows alis-bot-rs to connect to multiple servers.
-`--conf-dir=<directory>` : search for all *.toml file in directory (non-recursive). Files missing the `server` option will be considered unvalid.
+
+- `--conf=<file>`
+- `--conf=<file1><file2>` : allows alis-bot-rs to connect to multiple servers.
+- `--conf-dir=<directory>` : search for all *.toml file in directory (non-recursive). Files missing the `server` option will be considered unvalid.
 If no configuration file is provided, alis-bot-rs will use the default configuration file `example_configuration.toml` in this crate directory.
 
 ### Example

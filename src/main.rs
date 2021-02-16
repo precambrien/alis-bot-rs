@@ -97,17 +97,18 @@ fn get_config_paths_from_cli(matches: ArgMatches) -> Result<Vec<PathBuf>, Error>
 }
 
 fn config_file_is_valid(path: PathBuf) -> Result<PathBuf, Error> {
-	let error;
+    let error;
     if let Ok(config) = Config::load(&path) {
         if let Some(_server) = config.server {
             return Ok(path);
         } else {
-		    error = format_err!("Configuration file: {}, no server specified",
-		    path.as_path().display().to_string());
+            error = format_err!(
+                "Configuration file: {}, no server specified",
+                path.as_path().display().to_string()
+            );
         }
     } else {
-     	error = format_err!(
-        "File not found: {}", path.as_path().display().to_string());
+        error = format_err!("File not found: {}", path.as_path().display().to_string());
     }
     error!("{}", error);
     Err(error)
@@ -133,8 +134,8 @@ async fn run_instance(config: &PathBuf) -> irc::error::Result<()> {
     client.identify()?;
     let mut stream = client.stream()?;
     if let Some(server) = config.server {
-    	info!("Connected to {}", server);
-   	}
+        info!("Connected to {}", server);
+    }
 
     let mut server_name: Option<String> = None;
     let listing = ChannelListing::new();
@@ -216,7 +217,7 @@ mod tests {
     use super::*;
     use std::fs::{rename, File};
     use std::io::Write;
-    use tempfile::{Builder};
+    use tempfile::Builder;
 
     #[test]
     fn conflicting_args() {

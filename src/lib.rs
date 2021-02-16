@@ -2,11 +2,11 @@ use clap::{App, AppSettings, Arg};
 use failure::Error;
 use glob::Pattern;
 use irc::client::prelude::*;
-use log::{debug};
+use log::debug;
 use std::fmt;
 use std::sync::{Arc, Condvar, Mutex};
-use std::time::{Duration, Instant};
 use std::thread;
+use std::time::{Duration, Instant};
 #[macro_use]
 extern crate failure;
 
@@ -174,12 +174,12 @@ pub fn privmsg_parse(
                 }
             };
             let (result, last_fetch) = request.process(client, mutcond);
-            // Delay result to avoid anti-flooding policies 
-			for message in &result {
-            	client.send_privmsg(&source, message).unwrap();
-            	thread::sleep(Duration::from_millis(1000));
-           }
-           let end_msg = format!("\x02Total: {} channel(s)\x0f matching: '{}'. Last list update was cached {} ago, run with -f to force fetching and get the most up-to-date results.",
+            // Delay result to avoid anti-flooding policies
+            for message in &result {
+                client.send_privmsg(&source, message).unwrap();
+                thread::sleep(Duration::from_millis(1000));
+            }
+            let end_msg = format!("\x02Total: {} channel(s)\x0f matching: '{}'. Last list update was cached {} ago, run with -f to force fetching and get the most up-to-date results.",
                         &result.len(),
                         &request,
                         format_duration(last_fetch)
