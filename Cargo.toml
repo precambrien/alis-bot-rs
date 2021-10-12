@@ -3,7 +3,7 @@ name = "alis-bot-rs"
 version = "0.1.0"
 authors = ["precambrien <precambrien@protonmail.com>"]
 edition = "2018"
-description = "An IRC bot mimicking freenode's alis service (advanced channel listing)"
+description = "An IRC bot mimicking libera chat's alis service (advanced channel listing)"
 license = "Beerware"
 keywords = ["irc", "bot", "alis"]
 
