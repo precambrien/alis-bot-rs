@@ -3,7 +3,7 @@
 [![test](https://github.com/precambrien/alis-bot-rs/workflows/tests/badge.svg)](https://github.com/precambrien/alis-bot-rs/actions?query=branch%3Amaster+event%3Apush+workflow%3Atests)
 
 IRC bot allowing to search for channels with more flexibility than the /LIST command.
-This bot is inspired by alis's service on Freenode. 
+This bot is inspired by alis's service on Libera chat (Freenode RIP). 
 
 Bot usage:
 
@@ -41,7 +41,7 @@ If no configuration file is provided, alis-bot-rs will use the default configura
 
 ### Example
 
-    alis-bot-rs -c freenode_config.toml geeknode_config.toml
+    alis-bot-rs -c libera_config.toml geeknode_config.toml
 
 Or for full usage and options:
 
